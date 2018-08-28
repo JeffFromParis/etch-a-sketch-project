@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Etch a Sketch By Jeff</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>ETCH A SKETCH, By Jeff</h1>
+        </header>
+        <div class="main">
+            <h2>Drag the mouse on the grid to apply colors</h2>
+            <div class = buttonsUp>
+                <button id="changeSize">Change Size</button>
+                <button id="resetColors">Reset colors</button>
+                <input type="checkbox" id="displayGrid" value="active" checked/>
+                <label for="scales">Display grid</label>
+            </div>
+            <div id="grid">
+            </div>
+            <div class=buttonsDown>
+                <p>Select a color: <select name="colorList" form="colorForm">
+                        <option id="white" value="white">White</option>
+                        <option id="black" value="black">Black</option>
+                        <option id="purple" value="purple">Purple</option>
+                        <option id="indigo" value="indigo">Indigo</option>
+                        <option id="blue" value="blue">Blue</option>
+                        <option id="green" value="green">Green</option>
+                        <option id="yellow" value="yellow">Yellow</option>
+                        <option id="orange" value="orange">Orange</option>
+                        <option id="red" value="red">Red</option>
+                        <option id="random" value="random">Random</option>
+                      </select> </p>
+
+            </div>
+        </div>
+        <footer>
+            <div id="left">
+                <p>Page made by <a href="https://github.com/JeffFromParis" target="_blank">Jeff Vergne</a></p>
+                <p>Project from <a href="https://www.theodinproject.com/courses/web-development-101/lessons/etch-a-sketch-project" target="_blank">The Odin Project</a></p>
+            </div>
+            <div id="right">
+                <p>Nothing interesting here. Just some text</p>
+            </div>
+        </footer>
+    </div>
+    <script src = "js/etch-a-sketch.js"></script>
+</body>

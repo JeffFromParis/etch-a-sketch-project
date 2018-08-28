@@ -1,0 +1,148 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body{
+    height: 100%;
+}
+
+#container{
+    min-width: 550px;
+}
+
+header{
+    background: #274d6d;
+    color: #fff;
+    width: 100%;
+    line-height: 100px;
+    text-align: center;
+    background-color: rgb(69, 120, 230);
+}
+
+header h1{
+    padding: 10px;
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 40px;
+    line-height: normal;
+}
+
+.main{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main h2{
+    margin-top: 2em;
+    text-align: center;
+}
+
+.buttonsUp{
+    margin-top: 2em;
+    text-align: center;
+}
+
+#grid{
+    height:596px;
+    width: 596px;
+    border: 1px black solid;
+    display:grid;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2em;
+}
+
+.box{
+    /*border: 1px black solid;*/
+    background-color:white;
+}
+
+.gridOn{
+    border: 1px black solid;
+};
+
+.gridOff{
+    border: none;
+}
+
+.buttonsDown{
+    margin-top: 2em;
+    text-align: center;
+}
+
+footer{
+    padding: 15px;
+    /* position: fixed;
+    bottom: 0; */
+    background-color:rgb(69, 120, 230);
+    color: #fff;
+    width: 100%;
+    height: 85px;
+    clear: both;
+    margin-top: 2em;
+}
+
+footer p {
+    margin: 5px;
+}
+
+#left{
+    float: left;
+}
+
+#right{
+    float: right;
+}
+
+#white{
+    background-color: white;
+    color: white;
+}
+
+#black{
+    background-color: black;
+    color: black;
+}
+
+#purple{
+    background-color: purple;
+    color: purple;
+}
+
+#indigo{
+    background-color: indigo;
+    color: indigo;
+}
+
+
+#blue{
+    background-color: blue;
+    color: blue;
+}
+
+
+#green{
+    background-color: green;
+    color: green;
+}
+
+#yellow{
+    background-color: yellow;
+    color: yellow;
+}
+
+#orange{
+    background-color: orange;
+    color: orange;
+}
+
+#red{
+    background-color: red;
+    color: red;
+}
+
+
