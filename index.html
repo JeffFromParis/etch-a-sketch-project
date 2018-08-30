@@ -20,17 +20,17 @@
             <div id="grid">
             </div>
             <div class=buttonsDown>
-                <p>Select a color: <select name="colorList" form="colorForm">
-                        <option id="white" value="white">White</option>
-                        <option id="black" value="black">Black</option>
-                        <option id="purple" value="purple">Purple</option>
-                        <option id="indigo" value="indigo">Indigo</option>
-                        <option id="blue" value="blue">Blue</option>
-                        <option id="green" value="green">Green</option>
-                        <option id="yellow" value="yellow">Yellow</option>
-                        <option id="orange" value="orange">Orange</option>
-                        <option id="red" value="red">Red</option>
-                        <option id="random" value="random">Random</option>
+                <p>Select a color: <select id="colorChosen" name="colorList" form="colorForm" onchange="changeColor.call(this, event)">
+                    <option class="random" value="random">Random</option>
+                    <option class="white" value="white">White</option>
+                        <option class="black" value="black">Black</option>
+                        <option class="purple" value="purple">Purple</option>
+                        <option class="indigo" value="indigo">Indigo</option>
+                        <option class="blue" value="blue">Blue</option>
+                        <option class="green" value="green">Green</option>
+                        <option class="yellow" value="yellow">Yellow</option>
+                        <option class="orange" value="orange">Orange</option>
+                        <option class="red" value="red">Red</option>
                       </select> </p>
 
             </div>

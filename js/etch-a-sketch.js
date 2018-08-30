@@ -2,6 +2,8 @@ const grid = document.querySelector('#grid');
 const initSizeOfGrid = 16;
 const changeSizeBtn = document.querySelector('#changeSize');
 const resetColorsBtn = document.querySelector('#resetColors');
+const selectButton = document.querySelector("#colorChosen");
+console.log('selectButton : ' + selectButton);
 
 let displayGridFlag=0;
 const displayGridBox = document.querySelector('#displayGrid');
@@ -10,6 +12,7 @@ if (displayGridValue=="active") displayGridFlag=1;
 
 
 let color='#'+Math.floor(Math.random()*16777215).toString(16); //default first color
+let randomFlag=1;
 
 //when loading the page is a 16x16 grid
 gridEdition(16);
@@ -77,6 +80,7 @@ function gridEdition(size){
         boxToAdd=document.createElement('div');
         boxToAdd.setAttribute("class","box");
         boxToAdd.setAttribute("id",i);
+        boxToAdd.setAttribute("transparency",0.1);
         grid.appendChild(boxToAdd);
     }
 
@@ -113,7 +117,7 @@ There is a special function for the boxes since they can be destroyed and rebuil
 function eventListenerGenerationForBoxes(){
     //when the mouse moves onto one of the boxes
     boxes.forEach(item=> {
-        item.addEventListener('mouseover',applyColor);
+        item.addEventListener('mouseover',applyColor());
     })
 }
 
@@ -121,10 +125,58 @@ function eventListenerGenerationForBoxes(){
 Applying the color to the elements of the grid
 ****************************************************************/
 function applyColor(){
+
     let id=this.getAttribute("id");
+    let coeff=this.getAttribute("transparency");
+    if(!randomFlag){
+        if(coeff>=1){
+            console.log('color already at maximum');
+            return;
+        }
+        // console.log('Transparency value of element '+id+' before change is ' + coeff);
+        // console.log('colorRange is ' + colorRange);
+        switch(colorRange){
+            case("white"):
+            color="rgba(255,255,255,"+coeff+")";
+            break;
+            case("black"):
+            color="rgba(0,0,0,"+coeff+")";
+            break;
+            case("purple"):
+            color="rgba(148,0,211,"+coeff+")";
+            break;
+            case("indigo"):
+            color="rgba(75,0,130,"+coeff+"f)";
+            break;
+            case("blue"):
+            color="rgba(0,0,255,"+coeff+")";
+            break;
+            case("green"):
+            color="rgba(0,255,0,"+coeff+")";
+            break;
+            case("yellow"):
+            color="rgba(255,255,0,"+coeff+")";
+            break;
+            case("orange"):
+            color="rgba(255,127,0,"+coeff+")";
+            break;
+            case("red"):
+            color="rgba(255,0,0,"+coeff+")";
+            break;
+            default:
+            console.log('Problemo');
+        }
+    }
     this.style.cssText="background-color: "+color;
-    color='#'+Math.floor(Math.random()*16777215).toString(16);
+    if (randomFlag){
+        color='#'+Math.floor(Math.random()*16777215).toString(16);
+    } else if (coeff<1){
+        coeff=Math.round((parseFloat(coeff)+0.1)*10)/10;
+        this.setAttribute("transparency",coeff);
+        // console.log('Transparency value of element '+id+' after change is ' + coeff);
+    }
 }
+
 
 /***************************************************************
 create a new grid with a different size
@@ -154,4 +206,26 @@ function resetColor(){
     boxes.forEach(item =>{
         item.style.cssText="background-color: white";
     });
+}
+
+/***************************************************************
+this function is called when the user chooses a new color
+****************************************************************/
+function changeColor(event) {
+    let newColorText=this.options[this.selectedIndex].text.toLowerCase();
+
+    randomFlag=0;
+    if(newColorText=="random"){
+        randomFlag=1;
+    }else{
+        randomFlag=0;
+    }
+    colorRange=newColorText;
+
+    //resetting all the transparency values to 0.1
+    boxes.forEach(item => {
+        item.setAttribute('transparency',0.1);
+    })
+
+    selectButton.setAttribute("class",newColorText);
 }

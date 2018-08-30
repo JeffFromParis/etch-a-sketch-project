@@ -37,12 +37,12 @@ header h1{
 }
 
 .main h2{
-    margin-top: 2em;
+    margin-top: 1em;
     text-align: center;
 }
 
 .buttonsUp{
-    margin-top: 2em;
+    margin-top: 1em;
     text-align: center;
 }
 
@@ -54,6 +54,10 @@ header h1{
     margin-right: auto;
     margin-left: auto;
     margin-top: 2em;
+}
+
+#grid:hover{
+    cursor: crosshair;
 }
 
 .box{
@@ -70,7 +74,7 @@ header h1{
 }
 
 .buttonsDown{
-    margin-top: 2em;
+    margin-top: 1em;
     text-align: center;
 }
 
@@ -98,51 +102,52 @@ footer p {
     float: right;
 }
 
-#white{
-    background-color: white;
-    color: white;
+.white{
+    background-color: rgb(255,255,255);
+    color: rgb(255,255,255);
 }
 
-#black{
-    background-color: black;
+.black{
+    background-color: rgb(0,0,0);
+    color: rgb(0,0,0);
+}
+
+.purple{
+    background-color: rgb(148,0,211);
+    color: rgb(148,0,211);
+}
+
+.indigo{
+    background-color: rgb(75,0,130);
+    color: rgb(75,0,130);
+}
+
+.blue{
+    background-color: rgb(0,0,255);
+    color: rgb(0,0,255);
+}
+
+.green{
+    background-color: rgb(0,255,0);
+    color: rgb(0,255,0);
+}
+
+.yellow{
+    background-color: rgb(255,255,0);
+    color: rgb(255,255,0);
+}
+
+.orange{
+    background-color: rgb(255,127,0);
+    color: rgb(255,127,0);
+}
+
+.red{
+    background-color: rgb(255,0,0);
+    color: rgb(255,0,0);
+}
+
+.random{
+    background-color: white;
     color: black;
 }
-
-#purple{
-    background-color: purple;
-    color: purple;
-}
-
-#indigo{
-    background-color: indigo;
-    color: indigo;
-}
-
-
-#blue{
-    background-color: blue;
-    color: blue;
-}
-
-
-#green{
-    background-color: green;
-    color: green;
-}
-
-#yellow{
-    background-color: yellow;
-    color: yellow;
-}
-
-#orange{
-    background-color: orange;
-    color: orange;
-}
-
-#red{
-    background-color: red;
-    color: red;
-}
-
-
