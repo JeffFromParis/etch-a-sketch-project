@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8">
     <title>Etch a Sketch By Jeff</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
     <div id="container">
         <header>
@@ -11,7 +13,7 @@
         </header>
         <div class="main">
             <h2>Drag the mouse on the grid to apply colors</h2>
-            <div class = buttonsUp>
+            <div class="buttonsUp">
                 <button id="changeSize">Change Size</button>
                 <button id="resetColors">Reset colors</button>
                 <input type="checkbox" id="displayGrid" value="active" checked/>
@@ -21,8 +23,8 @@
             </div>
             <div class=buttonsDown>
                 <p>Select a color: <select id="colorChosen" name="colorList" form="colorForm" onchange="changeColor.call(this, event)">
-                    <option class="random" value="random">Random</option>
-                    <option class="white" value="white">White</option>
+                        <option class="random" value="random">Random</option>
+                        <option class="white" value="white">White</option>
                         <option class="black" value="black">Black</option>
                         <option class="purple" value="purple">Purple</option>
                         <option class="indigo" value="indigo">Indigo</option>
@@ -31,19 +33,20 @@
                         <option class="yellow" value="yellow">Yellow</option>
                         <option class="orange" value="orange">Orange</option>
                         <option class="red" value="red">Red</option>
-                      </select> </p>
+                    </select> </p>
 
             </div>
         </div>
         <footer>
             <div id="left">
                 <p>Page made by <a href="https://github.com/JeffFromParis" target="_blank">Jeff Vergne</a></p>
-                <p>Project from <a href="https://www.theodinproject.com/courses/web-development-101/lessons/etch-a-sketch-project" target="_blank">The Odin Project</a></p>
+                <p>Project from <a href="https://www.theodinproject.com/courses/web-development-101/lessons/etch-a-sketch-project"
+                        target="_blank">The Odin Project</a></p>
             </div>
             <div id="right">
                 <p>Nothing interesting here. Just some text</p>
             </div>
         </footer>
     </div>
-    <script src = "js/etch-a-sketch.js"></script>
+    <script src="js/etch-a-sketch.js"></script>
 </body>
