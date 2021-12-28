@@ -126,48 +126,21 @@ function eventListenerGenerationForBoxes() {
 Applying the color to the elements of the grid
 ****************************************************************/
 function applyColor(evt) {
+    
+    let id = this.getAttribute("id");
+    let coeff = this.getAttribute("transparency");
+
     if (evt.ctrlKey) {
-        let id = this.getAttribute("id");
-        let coeff = this.getAttribute("transparency");
+        console.log('Ctrl key is pressed over a box');
         if (!randomFlag) {
             if (coeff >= 1) {
                 console.log('color already at maximum');
                 return;
             }
             // console.log('Transparency value of element '+id+' before change is ' + coeff);
-            // console.log('colorRange is ' + colorRange);
-            switch (colorRange) {
-                case ("white"):
-                    color = "rgba(255,255,255," + coeff + ")";
-                    break;
-                case ("black"):
-                    color = "rgba(0,0,0," + coeff + ")";
-                    break;
-                case ("purple"):
-                    color = "rgba(148,0,211," + coeff + ")";
-                    break;
-                case ("indigo"):
-                    color = "rgba(75,0,130," + coeff + ")";
-                    break;
-                case ("blue"):
-                    color = "rgba(0,0,255," + coeff + ")";
-                    break;
-                case ("green"):
-                    color = "rgba(0,255,0," + coeff + ")";
-                    break;
-                case ("yellow"):
-                    color = "rgba(255,255,0," + coeff + ")";
-                    break;
-                case ("orange"):
-                    color = "rgba(255,127,0," + coeff + ")";
-                    break;
-                case ("red"):
-                    color = "rgba(255,0,0," + coeff + ")";
-                    break;
-                default:
-                    console.log('Problemo');
-            }
+            color = generateNewColor(colorRange, coeff);
         }
+
         this.style.cssText = "background-color: " + color;
         if (randomFlag) {
             color = '#' + Math.floor(Math.random() * 16777215).toString(16);
@@ -232,4 +205,40 @@ function changeColor(event) {
     selectButton.setAttribute("class", newColorText);
 }
  
-/****** test git *****/
+/***************************************************************
+transforming the text selected by the user into the correspondong color
+****************************************************************/
+function generateNewColor(range,coeff){
+    switch (range) {
+        case ("white"):
+            color = "rgba(255,255,255," + coeff + ")";
+            break;
+        case ("black"):
+            color = "rgba(0,0,0," + coeff + ")";
+            break;
+        case ("purple"):
+            color = "rgba(148,0,211," + coeff + ")";
+            break;
+        case ("indigo"):
+            color = "rgba(75,0,130," + coeff + ")";
+            break;
+        case ("blue"):
+            color = "rgba(0,0,255," + coeff + ")";
+            break;
+        case ("green"):
+            color = "rgba(0,255,0," + coeff + ")";
+            break;
+        case ("yellow"):
+            color = "rgba(255,255,0," + coeff + ")";
+            break;
+        case ("orange"):
+            color = "rgba(255,127,0," + coeff + ")";
+            break;
+        case ("red"):
+            color = "rgba(255,0,0," + coeff + ")";
+            break;
+        default:
+            console.log('Problemo');
+    }
+    return color;
+}
