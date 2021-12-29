@@ -80,7 +80,7 @@ function gridEdition(size) {
         boxToAdd = document.createElement('div');
         boxToAdd.setAttribute("class", "box");
         boxToAdd.setAttribute("id", i);
-        boxToAdd.setAttribute("transparency", 0.1);
+        boxToAdd.setAttribute("transparency", 0);
         grid.appendChild(boxToAdd);
     }
 
@@ -131,24 +131,48 @@ function applyColor(evt) {
     let coeff = this.getAttribute("transparency");
 
     if (evt.ctrlKey) {
-        console.log('Ctrl key is pressed over a box');
+        
+        console.log('Ctrl key is pressed over the box ' + id);
+        
         if (!randomFlag) {
+            //in case the transparency is already at min (=opacity at max), nothing to do
             if (coeff >= 1) {
-                console.log('color already at maximum');
+                console.log('coeff already at maximum for the box '+id);
                 return;
             }
-            // console.log('Transparency value of element '+id+' before change is ' + coeff);
             color = generateNewColor(colorRange, coeff);
         }
 
         this.style.cssText = "background-color: " + color;
         if (randomFlag) {
-            color = '#' + Math.floor(Math.random() * 16777215).toString(16);
+            color = '#' + Math.floor(Math.random() * 16777215).toString(16); //generating a random color
         } else if (coeff < 1) {
+            console.log('Transparency value of element '+id+' before change is ' + coeff);
             coeff = Math.round((parseFloat(coeff) + 0.1) * 10) / 10;
             this.setAttribute("transparency", coeff);
-            // console.log('Transparency value of element '+id+' after change is ' + coeff);
+            console.log('Transparency value of element '+id+' after change is ' + this.getAttribute("transparency"));
         }
+    }else if(evt.shiftKey){
+        console.log('Shift key is pressed over the box ' + id);
+
+        if(!randomFlag){
+            //in case the transparency is already at maximum (=opacity at min), nothing to do
+            if (coeff <= 0) {
+                console.log('coeff already at minimum for the box '+id);
+                return;
+            }
+            color = generateNewColor(colorRange, coeff);
+        }
+
+        this.style.cssText = "background-color: " + color;
+        
+        if(coeff > 0){
+            console.log('Transparency value of element '+id+' before change is ' + coeff);
+            coeff = Math.round((parseFloat(coeff) - 0.1) * 10) / 10;
+            this.setAttribute("transparency", coeff);
+            console.log('Transparency value of element '+id+' after change is ' + this.getAttribute("transparency"));
+        }
+
     }
 }
 
@@ -199,7 +223,7 @@ function changeColor(event) {
 
     //resetting all the transparency values to 0.1
     boxes.forEach(item => {
-        item.setAttribute('transparency', 0.1);
+        item.setAttribute('transparency', 0);
     })
 
     selectButton.setAttribute("class", newColorText);
